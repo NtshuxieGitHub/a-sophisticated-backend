@@ -44,20 +44,20 @@ This is the backend system for a **Vanilla JS To-Do Application**, built with **
 
 ### Users Table
 
-| Column   | Type    | Notes              |
-| -------- | ------- | ------------------ |
-| id       | INTEGER | Primary Key        |
-| username | TEXT    | Unique, Required   |
-| password | TEXT    | Hashed with bcrypt |
+| Column   | Type    | Notes                     |
+| -------- | ------- | ------------------------- |
+| id       | INTEGER | Primary Key Autoincrement |
+| username | TEXT    |                           |
+| password | TEXT    | Hashed with bcrypt        |
 
 ### Todos Table
 
-| Column    | Type    | Notes               |
-| --------- | ------- | ------------------- |
-| id        | INTEGER | Primary Key         |
-| user_id   | INTEGER | Foreign Key (users) |
-| title     | TEXT    | Required            |
-| completed | BOOLEAN | Default: false      |
+| Column    | Type    | Notes                     |
+| --------- | ------- | ------------------------- |
+| id        | INTEGER | Primary Key Autoincrement |
+| user_id   | INTEGER |                           |
+| task      | TEXT    |                           |
+| completed | BOOLEAN | Default: false            |
 
 ---
 
@@ -66,7 +66,7 @@ This is the backend system for a **Vanilla JS To-Do Application**, built with **
 1. **Clone the repository**
 
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/NtshuxieGitHub/a-sophisticated-backend
    cd your-project-folder
    ```
 
