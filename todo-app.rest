@@ -19,11 +19,29 @@ Content-Type: application/json
     "password": "testPassword"
 }
 
-###
+### Fetch all todos GET / (protected route)
+GET http://localhost:5005/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUwOTgwODYzLCJleHAiOjE3NTEwNjcyNjN9.PzW17aj8fpzNswi0SEKCqyhjI3qV9SbWLQufIO9Tyng
 
-###
+### Create a new todo POST /todos
+POST http://localhost:5005/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUwOTgwODYzLCJleHAiOjE3NTEwNjcyNjN9.PzW17aj8fpzNswi0SEKCqyhjI3qV9SbWLQufIO9Tyng
+Content-Type: application/json
 
-###
+{
+    "task": "Take lunch break at 2:00 PM"
+}
+
+### Update a todo PUT /todos/:id (protected route)
+PUT http://localhost:5005/todos/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUwOTgwODYzLCJleHAiOjE3NTEwNjcyNjN9.PzW17aj8fpzNswi0SEKCqyhjI3qV9SbWLQufIO9Tyng
+Content-Type: application/json
+
+{
+    "task": "Lunch break actually taken at 3:00 PM",
+    "completed": 1
+}
+
 
 ###
 

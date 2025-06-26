@@ -4,6 +4,8 @@ import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/authRoutes.js";
 import todoRoutes from "./routes/todoRoutes.js";
+import authMiddleware from "./middleware/authMiddleware.js";
+import cors from "cors";
 
 // Initialize the Express application
 const app = express();
@@ -16,6 +18,11 @@ const fileName = fileURLToPath(import.meta.url);
 const dirName = dirname(fileName);
 
 // Middleware
+app.use(
+  cors({
+    origin: "http://127.0.0.1:5500", // Frontend URL
+  })
+);
 app.use(express.json());
 
 /* 
@@ -33,7 +40,7 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/auth", authRoutes);
-app.use("/todos", todoRoutes);
+app.use("/todos", authMiddleware, todoRoutes);
 
 // Tell app to listen to the port
 app.listen(PORT, () => {
