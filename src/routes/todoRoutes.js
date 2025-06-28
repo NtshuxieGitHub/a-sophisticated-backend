@@ -73,14 +73,14 @@ router.put("/:id", (req, res) => {
     values.push(id);
 
     // Prepare the SQL statement to update a todo
-    sqlQuery = `UPDATE todos SET ${fields.join(", ")} WHERE id = ?`;
+    const sqlQuery = `UPDATE todos SET ${fields.join(", ")} WHERE id = ?`;
     const updateTodo = sqlDb.prepare(sqlQuery);
 
     // Execute the SQL statement with the provided completed and id
     updateTodo.run(...values);
 
     // Send the updated todo as a JSON response
-    res, json({ message: "Todo updated" });
+    res.json({ message: "Todo updated" });
   } catch (error) {
     // Handle errors
     console.error(error.message);
@@ -89,6 +89,42 @@ router.put("/:id", (req, res) => {
 });
 
 // Delete a todo when the /todos/:id endpoint is hit - reference the id
-router.delete("/:id", (req, res) => {});
+router.delete("/:id", (req, res) => {
+  try {
+    // Destricture the id from request parameters
+    const { id } = req.params;
+    const { userId } = req;
+
+    // Prepare the SQL statement to delete a todo
+    /* 
+    this works fine but only checks the task id and does not check
+     the user id - need to be able to check both for an added layer 
+     of security
+    */
+    // const deleteTodo = sqlDb.prepare(`
+    //   DELETE FROM todos WHERE id = ?
+    //   `);
+
+    // // Execute the SQL statement with the provided id
+    // deleteTodo.run(id);
+
+    // Prepare the SQL statement to delete a todo
+    const deleteTodo = sqlDb.prepare(`
+      DELETE FROM todos WHERE id = ? AND user_id = ?
+      `);
+
+    // Execute the SQL statement with the provided id
+    deleteTodo.run(id, userId);
+
+    // Send the deleted todo as a JSON response
+    res.json({
+      message: "Todo deleted",
+    });
+  } catch (error) {
+    // Handle errors
+    console.error(error.message);
+    res.status(503).json({ error: "Internal server error" });
+  }
+});
 
 export default router;

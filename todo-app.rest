@@ -21,11 +21,11 @@ Content-Type: application/json
 
 ### Fetch all todos GET / (protected route)
 GET http://localhost:5005/todos
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUwOTgwODYzLCJleHAiOjE3NTEwNjcyNjN9.PzW17aj8fpzNswi0SEKCqyhjI3qV9SbWLQufIO9Tyng
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUxMDcyOTI2LCJleHAiOjE3NTExNTkzMjZ9._LyN1EoMV0RYlUH8MjccqkLxf8kw16YP4pEm-YJK4HM
 
 ### Create a new todo POST /todos
 POST http://localhost:5005/todos
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUwOTgwODYzLCJleHAiOjE3NTEwNjcyNjN9.PzW17aj8fpzNswi0SEKCqyhjI3qV9SbWLQufIO9Tyng
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUxMDcyOTI2LCJleHAiOjE3NTExNTkzMjZ9._LyN1EoMV0RYlUH8MjccqkLxf8kw16YP4pEm-YJK4HM
 Content-Type: application/json
 
 {
@@ -33,20 +33,16 @@ Content-Type: application/json
 }
 
 ### Update a todo PUT /todos/:id (protected route)
-PUT http://localhost:5005/todos/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUwOTgwODYzLCJleHAiOjE3NTEwNjcyNjN9.PzW17aj8fpzNswi0SEKCqyhjI3qV9SbWLQufIO9Tyng
+PUT http://localhost:5005/todos/2
+Authorization: eeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUxMDcyOTI2LCJleHAiOjE3NTExNTkzMjZ9._LyN1EoMV0RYlUH8MjccqkLxf8kw16YP4pEm-YJK4HM
 Content-Type: application/json
 
 {
-    "task": "Lunch break actually taken at 3:00 PM",
+    "task": "Take lunch break at 3:00 PM actually.",
     "completed": 1
 }
 
 
-###
-
-###
-
-###
-
-###
+### Delete a todo DELETE /todos/:id (protected route)
+DELETE http://localhost:5005/todos/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUxMDcyOTI2LCJleHAiOjE3NTExNTkzMjZ9._LyN1EoMV0RYlUH8MjccqkLxf8kw16YP4pEm-YJK4HM
