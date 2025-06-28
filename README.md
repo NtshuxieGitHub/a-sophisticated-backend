@@ -76,13 +76,28 @@ This is the backend system for a **Vanilla JS To-Do Application**, built with **
    npm install
    ```
 
-3. **Run the development server**
+3. **Set up an .env**
+   Example:
+
+```
+PORT=5005
+JWT_SECRET_KEY="jwt_secret_key"
+```
+
+4. **Run the development server**
 
    ```
    npm run dev
    ```
 
    Ensure SQLite DB is created with required tables
+
+5. **Run API Emulations**
+   Use the following template:
+
+```
+todo-app.rest
+```
 
 ## 🔐 Authentication Flow
 
